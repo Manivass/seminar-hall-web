@@ -1,4 +1,5 @@
 import { PiUserCircleDuotone } from "react-icons/pi";
+import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <div>
@@ -106,14 +107,14 @@ const NavBar = () => {
             </ul>
           </div> */}
           <button className="cursor-pointer">
-            <div className="w-auto rounded-full flex gap-2">
+            <Link to="/login" className="w-auto rounded-full flex gap-2">
               <img
                 alt="Tailwind CSS Navbar component"
                 className="w-9 h-9"
                 src="https://w7.pngwing.com/pngs/798/436/png-transparent-computer-icons-user-profile-avatar-profile-heroes-black-profile-thumbnail.png"
               />
               <span className="text-xl  text-gray-400 my-1">Login/SignUp</span>
-            </div>
+            </Link>
           </button>
         </div>
       </div>

@@ -1,9 +1,12 @@
 import { PiUserCircleDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import CreateHall from "./CreateHall";
 const NavBar = () => {
+  const [isLogin, setLogin] = useState(false);
   return (
-    <div>
-      <div className="navbar bg-base-100 shadow-sm h-20 px-5 py-2 ">
+    <div className="">
+      <div className="navbar  bg-base-100 shadow-sm h-20 px-5 py-2 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,15 +49,18 @@ const NavBar = () => {
               </li>
             </ul>
           </div>
-          <a className="hover:-translate-y-0.5 hover:shadow-sm text-xl cursor-pointer">
+          <Link
+            to="/"
+            className="hover:-translate-y-0.5 hover:shadow-sm text-xl cursor-pointer"
+          >
             <img
               src="https://tse2.mm.bing.net/th/id/OIP.DPb2s6XedEACYmw58wFhwgHaEK?pid=Api&P=0&h=180"
               className="w-35 my-2 "
             />
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
+          <ul className="menu menu-horizontal px-1 flex gap-4">
             <li>
               <a>Item 1</a>
             </li>
@@ -72,7 +78,12 @@ const NavBar = () => {
               </details>
             </li>
             <li>
-              <a>Item 3</a>
+              <Link
+                to="/createhall"
+                className="p-2 border bg-pink-500 text-white"
+              >
+                Create Hall
+              </Link>
             </li>
           </ul>
         </div>
@@ -113,7 +124,12 @@ const NavBar = () => {
                 className="w-9 h-9"
                 src="https://w7.pngwing.com/pngs/798/436/png-transparent-computer-icons-user-profile-avatar-profile-heroes-black-profile-thumbnail.png"
               />
-              <span className="text-xl  text-gray-400 my-1">Login/SignUp</span>
+              <span
+                className="text-xl  text-gray-400 my-1"
+                onClick={() => setLogin(!isLogin)}
+              >
+                Login/SignUp
+              </span>
             </Link>
           </button>
         </div>

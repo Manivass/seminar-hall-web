@@ -33,9 +33,16 @@ const Body = () => {
                   workshops, conferences, and events near you.
                 </p>
               </li>
-              <Link className=" flex pl-2 my-3">
-                <button className="px-2 py-3 bg-amber-600 text-white font-bold flex rounded-lg text-lg  ">Book Hall Now</button>
-              </Link>
+              {isUserLogin?.role == "user" && (
+                <Link
+                  to="/hallbooking"
+                  className=" flex pl-2 my-3 cursor-pointer"
+                >
+                  <button className="px-2 py-3 bg-amber-600 text-white font-bold flex rounded-lg text-md  ">
+                    Book Hall Now
+                  </button>
+                </Link>
+              )}
             </ul>
           </div>
         </div>

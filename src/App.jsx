@@ -4,6 +4,7 @@ import Login from "./Login";
 import CreateHall from "./CreateHall";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import BookHall from "./BookHall";
 const App = () => {
   return (
     <div>
@@ -13,6 +14,7 @@ const App = () => {
             <Route path="/" element={<Body />} />
             <Route path="/login" element={<Login />} />
             <Route path="/createhall" element={<CreateHall />} />
+            <Route path="/hallbooking" element={<BookHall />} />
           </Routes>
         </BrowserRouter>
       </Provider>

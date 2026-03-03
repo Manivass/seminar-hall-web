@@ -4,7 +4,6 @@ import CreateHall from "./CreateHall";
 import { useSelector } from "react-redux";
 const NavBar = () => {
   const isUserLogin = useSelector((store) => store.user);
-  console.log(isUserLogin);
 
   return (
     <div className="">
@@ -79,14 +78,16 @@ const NavBar = () => {
                 </ul>
               </details>
             </li>
-            <li>
-              <Link
-                to="/createhall"
-                className="p-2 border bg-pink-500 text-white"
-              >
-                Create Hall
-              </Link>
-            </li>
+            {isUserLogin?.role === "admin" && (
+              <li>
+                <Link
+                  to="/createhall"
+                  className="p-2 border bg-pink-500 text-white"
+                >
+                  Create Hall
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
         <div className="navbar-end flex gap-2">

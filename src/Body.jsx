@@ -1,11 +1,16 @@
 import React from "react";
 import NavBar from "./NavBar";
+import SeminarHallCards from "./SeminarHallCards";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Body = () => {
+  const isUserLogin = useSelector((store) => store?.user);
+  console.log(isUserLogin);
   return (
     <div>
       <NavBar />
-      <div className="flex w-full flex-col lg:flex-row my-5 bg-gray-100 ">
+      <div className="flex w-full flex-col lg:flex-row my-5  ">
         <div className="card   grid h-138 grow place-items-center">
           <div className=" ">
             <ul className="flex flex-col">
@@ -28,6 +33,9 @@ const Body = () => {
                   workshops, conferences, and events near you.
                 </p>
               </li>
+              <Link className=" flex pl-2 my-3">
+                <button className="px-2 py-3 bg-amber-600 text-white font-bold flex rounded-lg text-lg  ">Book Hall Now</button>
+              </Link>
             </ul>
           </div>
         </div>
@@ -38,6 +46,18 @@ const Body = () => {
             <img src="https://www.designmania.gr/wp-content/uploads/2022/09/Seminar-Hall-04.jpg" />
             <img src="https://img.freepik.com/premium-photo/3d-rendering-luxury-seminar-meeting-banquet-hall-room_974729-2313.jpg" />
           </figure>
+        </div>
+      </div>
+      <div className="bg-base-200  px-4 py-12">
+        <div className="w-49/50 bg-gray-100 mx-auto rounded-lg p-4">
+          <h2 className="text-2xl font-bold font-serif text-black p-4">
+            Book Venues
+          </h2>
+          <div className="my-4 p-4 flex gap-7">
+            <SeminarHallCards />
+            <SeminarHallCards />
+            <SeminarHallCards />
+          </div>
         </div>
       </div>
     </div>

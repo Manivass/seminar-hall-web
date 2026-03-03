@@ -2,24 +2,19 @@ import React from "react";
 
 const SeminarHallCards = () => {
   return (
-    <div>
-      <div className="card bg-base-100 w-96 shadow-sm">
-        <figure>
-          <img
-            src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-            alt="Shoes"
-          />
-        </figure>
-        <div className="card-body">
-          <h2 className="card-title">Card Title</h2>
-          <p>
-            A card component has a figure, a body part, and inside body there
-            are title and actions parts
-          </p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
+    <div className="card bg-base-100 w-80 h-auto  shadow-lg shadow-gray-200">
+      <figure>
+        <img
+          src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+          alt="Shoes"
+        />
+      </figure>
+      <div className="card-body">
+        <ul className="flex justify-between">
+          <li className="card-title">Hall Name</li>
+          <li className="bg-green-400 p-2 rounded-lg">⭐4.5(22)</li>
+        </ul>
+        <p>Capacity : 100</p>
       </div>
     </div>
   );

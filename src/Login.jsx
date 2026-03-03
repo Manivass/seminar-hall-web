@@ -1,10 +1,55 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "./utils/Constant";
+import { useDispatch } from "react-redux";
+import { addUser } from "./store/userSlice";
 
 const Login = () => {
-  const [isSignUp, setSignUp] = useState(true);
+  const [isSignUp, setSignUp] = useState(false);
+  const [iserr, setErr] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [emailId, setEmailId] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleSignUp = async () => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "/signUp",
+        {
+          firstName,
+          lastName,
+          emailId,
+          password,
+        },
+        {
+          withCredentials: true,
+        },
+      );
+
+      dispatch(addUser(res?.data?.data));
+      navigate("/");
+    } catch (err) {
+      setErr(err?.response?.data?.message);
+    }
+  };
+  const handleLogin = async () => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "/login",
+        { emailId, password },
+        { withCredentials: true },
+      );
+      dispatch(addUser(res?.data?.data));
+      navigate("/");
+    } catch (err) {
+      setErr(err);
+    }
+  };
   return (
-    <div className="w-full mx-auto h-screen flex items-center rounded-2xl ">
+    <div className="w-screen mx-auto h-screen flex items-center rounded-2xl ">
       <div
         className="hero h-screen  relative"
         style={{
@@ -30,13 +75,17 @@ const Login = () => {
                   <div>
                     <label className="label ">First Name</label>
                     <input
-                      type="email"
+                      type="text"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                       className="input my-2"
                       placeholder="First Name"
                     />
                     <label className="label my-1">Last Name</label>
                     <input
-                      type="email"
+                      type="text"
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
                       className="input"
                       placeholder="Last Name"
                     />{" "}
@@ -44,14 +93,26 @@ const Login = () => {
                 )}
 
                 <label className="label">Email</label>
-                <input type="email" className="input" placeholder="Email" />
+                <input
+                  type="email"
+                  value={emailId}
+                  onChange={(e) => setEmailId(e.target.value)}
+                  className="input"
+                  placeholder="Email"
+                />
                 <label className="label">Password</label>
                 <input
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="input"
                   placeholder="Password"
                 />
-                <button className="btn btn-neutral mt-4">
+                <p>{iserr}</p>
+                <button
+                  onClick={isSignUp ? handleSignUp : handleLogin}
+                  className="btn btn-neutral mt-4"
+                >
                   {isSignUp ? "SignUp" : "Login"}
                 </button>
 
@@ -68,12 +129,6 @@ const Login = () => {
               </fieldset>
             </div>
           </div>
-          <Link to="/">
-            <img
-              src="https://playo-website.gumlet.io/playo-website-v2/Hamburger.png"
-              className="absolute top-3 right-3 w-8 cursor-pointer bg-white aspect-square rounded-full"
-            />
-          </Link>
         </div>
       </div>
     </div>

@@ -1,9 +1,11 @@
 import { PiUserCircleDuotone } from "react-icons/pi";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import CreateHall from "./CreateHall";
+import { useSelector } from "react-redux";
 const NavBar = () => {
-  const [isLogin, setLogin] = useState(false);
+  const isUserLogin = useSelector((store) => store.user);
+  console.log(isUserLogin);
+
   return (
     <div className="">
       <div className="navbar  bg-base-100 shadow-sm h-20 px-5 py-2 ">
@@ -88,50 +90,50 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end flex gap-2">
-          {/* <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-12 rounded-full">
+          {isUserLogin ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-12 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    className="w-full"
+                    src={isUserLogin?.photoURL}
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex="-1"
+                className="menu menu-sm dropdown-content bg-base-200 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <Link to="/login">Logout</Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <button className="cursor-pointer">
+              <Link to="/login" className="w-auto rounded-full flex gap-2">
                 <img
                   alt="Tailwind CSS Navbar component"
-                  className="w-full"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  className="w-9 h-9"
+                  src="https://w7.pngwing.com/pngs/798/436/png-transparent-computer-icons-user-profile-avatar-profile-heroes-black-profile-thumbnail.png"
                 />
-              </div>
-            </div>
-            <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-200 rounded-box z-1 mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div> */}
-          <button className="cursor-pointer">
-            <Link to="/login" className="w-auto rounded-full flex gap-2">
-              <img
-                alt="Tailwind CSS Navbar component"
-                className="w-9 h-9"
-                src="https://w7.pngwing.com/pngs/798/436/png-transparent-computer-icons-user-profile-avatar-profile-heroes-black-profile-thumbnail.png"
-              />
-              <span
-                className="text-xl  text-gray-400 my-1"
-                onClick={() => setLogin(!isLogin)}
-              >
-                Login/SignUp
-              </span>
-            </Link>
-          </button>
+                <span className="text-xl  text-gray-400 my-1">
+                  Login/SignUp
+                </span>
+              </Link>
+            </button>
+          )}
         </div>
       </div>
     </div>

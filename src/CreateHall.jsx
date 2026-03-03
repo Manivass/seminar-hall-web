@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
+import SeminarHallCards from "./SeminarHallCards";
 
 const CreateHall = () => {
   return (
@@ -12,9 +13,9 @@ const CreateHall = () => {
             "url(https://ghar360.com/blogs/wp-content/uploads/sh4.jpg)",
         }}
       >
-        <div className="hero rounded-lg w-2/3 p-4 bg-base-300">
+        <div className="hero rounded-lg w-2/3 p-4 bg-gray-200/40">
           <div className="hero-content flex-col lg:flex-row-reverse gap-4">
-            <div className="card bg-base-100 w-120  shadow-sm">
+            <div className="card bg-base-100 w-130 h-auto  shadow-lg shadow-gray-200">
               <figure>
                 <img
                   src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -22,14 +23,11 @@ const CreateHall = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Hall Name</h2>
-                <p>
-                  A card component has a figure, a body part, and inside body
-                  there are title and actions parts
-                </p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
+                <ul className="flex justify-between">
+                  <li className="card-title">Hall Name</li>
+                  <li className="bg-green-400 p-2 rounded-lg">⭐4.5(22)</li>
+                </ul>
+                <p>Capacity : 100</p>
               </div>
             </div>
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">

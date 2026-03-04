@@ -1,8 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const SeminarHallCards = ({ hallDetails }) => {
+  const navigate = useNavigate();
+  const handleBookingSection = () => {
+    navigate(`/booking-hall/${hallDetails._id}`);
+  };
   return (
-    <div className="card bg-base-100 w-80 h-auto  shadow-lg shadow-gray-200">
+    <div
+      onClick={handleBookingSection}
+      className="card bg-base-100 w-80 h-auto  shadow-lg shadow-gray-200"
+    >
       <figure>
         <img
           src={

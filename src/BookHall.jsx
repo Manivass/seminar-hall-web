@@ -23,6 +23,13 @@ const BookHall = () => {
   useEffect(() => {
     getHalls();
   }, []);
+  if (hallAvailable?.length === 0) {
+    return (
+      <div>
+        <h2>No Hall Found</h2>
+      </div>
+    );
+  }
   return (
     <div>
       <NavBar />

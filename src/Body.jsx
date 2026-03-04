@@ -35,7 +35,7 @@ const Body = () => {
               </li>
               {isUserLogin?.role == "user" && (
                 <Link
-                  to="/hallbooking"
+                  to="/hallAvailable"
                   className=" flex pl-2 my-3 cursor-pointer"
                 >
                   <button className="px-2 py-3 bg-amber-600 text-white font-bold flex rounded-lg text-md  ">

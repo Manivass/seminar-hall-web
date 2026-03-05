@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
 import axios from "axios";
-import { BASE_URL } from "./utils/Constant";
+import { BASE_URL } from "../utils/Constant";
 import { useNavigate } from "react-router-dom";
 
 const CreateHall = () => {

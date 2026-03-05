@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import NavBar from "./NavBar";
 import SeminarHallCards from "./SeminarHallCards";
 import axios from "axios";
-import { BASE_URL } from "./utils/Constant";
+import { BASE_URL } from "../utils/Constant";
 import { useDispatch, useSelector } from "react-redux";
-import { addHall } from "./store/hallSlice";
+import { addHall } from "../store/hallSlice";
 
 const BookHall = () => {
   const dispatch = useDispatch();

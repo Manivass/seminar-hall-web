@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { BASE_URL } from "./utils/Constant";
+import { BASE_URL } from "../utils/Constant";
 import { useDispatch } from "react-redux";
-import { addUser } from "./store/userSlice";
+import { addUser } from "../store/userSlice";
 
 const Login = () => {
   const [isSignUp, setSignUp] = useState(false);

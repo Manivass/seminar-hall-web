@@ -1,16 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "./NavBar";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { BASE_URL } from "./utils/Constant";
+import { BASE_URL } from "../utils/Constant";
 import { useDispatch, useSelector } from "react-redux";
-import { addBookingHall } from "./store/bookingSlice";
+import { addBookingHall } from "../store/bookingSlice";
 
 const BookingSection = () => {
   const { hallId } = useParams();
   const dispatch = useDispatch();
   const hallDetails = useSelector((store) => store.booking);
-  console.log(hallDetails);
+  const [iserr, setErr] = useState("");
+
+  const handleBooking = async () => {
+    try {
+      axios.post(BASE_URL + `/user/Hall-booking/${hallId}`);
+      setTimeout(() => {});
+    } catch (err) {
+      setErr(err?.resposne?.data?.message);
+    }
+  };
 
   const getHall = async () => {
     try {
@@ -60,9 +69,14 @@ const BookingSection = () => {
                   placeholder="Enter Start time"
                 />
                 <div>
-                  <a className="link link-hover">Forgot password?</a>
+                  <a className=" text-red-600">{iserr}</a>
                 </div>
-                <button className="btn btn-success mt-4">Book Now</button>
+                <button
+                  onClick={handleBooking()}
+                  className="btn btn-success mt-4"
+                >
+                  Book Now
+                </button>
               </fieldset>
             </div>
           </div>

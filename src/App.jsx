@@ -1,11 +1,11 @@
-import Body from "./Body";
+import Body from "./components/Body";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Login";
-import CreateHall from "./CreateHall";
+import Login from "./components/Login";
+import CreateHall from "./components/CreateHall";
 import { Provider } from "react-redux";
 import store from "./store/store";
-import BookHall from "./BookHall";
-import BookingSection from "./BookingSection";
+import BookHall from "./components/BookHall";
+import BookingSection from "./components/BookingSection";
 const App = () => {
   return (
     <div>

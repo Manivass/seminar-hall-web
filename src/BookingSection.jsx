@@ -10,6 +10,7 @@ const BookingSection = () => {
   const { hallId } = useParams();
   const dispatch = useDispatch();
   const hallDetails = useSelector((store) => store.booking);
+  console.log(hallDetails);
 
   const getHall = async () => {
     try {
@@ -30,22 +31,40 @@ const BookingSection = () => {
   return (
     <div>
       <NavBar />
-      <div className="hero bg-base-200 min-h-screen">
-        <div className="hero-content flex-col lg:flex-row">
-          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+      <div className="hero bg-base-200 min-h-screen flex flex-col">
+        <div className="hero-content flex-col lg:flex-row  h-screen ">
+          <div className="card bg-base-100 w-full max-w-2xl h-4/5 shrink-0 shadow-2xl">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-              className="max-w-sm rounded-lg shadow-2xl"
+              src={hallDetails?.photoURL}
+              className="w-full h-full rounded-lg shadow-2xl"
             />
           </div>
-          <div>
-            <h1 className="text-5xl font-bold">Box Office News!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
+          <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+            <div className="card-body">
+              <h2 className="text-xl font-semibold">
+                {hallDetails?.hallName} - Booking Section
+              </h2>
+              <fieldset className="fieldset">
+                <label className="label">Date</label>
+                <input type="date" className="input" placeholder="date" />
+                <label className="label">Start time</label>
+                <input
+                  type="time"
+                  className="input"
+                  placeholder="Enter Start time"
+                />
+                <label className="label">End time</label>
+                <input
+                  type="time"
+                  className="input"
+                  placeholder="Enter Start time"
+                />
+                <div>
+                  <a className="link link-hover">Forgot password?</a>
+                </div>
+                <button className="btn btn-success mt-4">Book Now</button>
+              </fieldset>
+            </div>
           </div>
         </div>
       </div>

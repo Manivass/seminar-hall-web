@@ -9,7 +9,7 @@ const SeminarHallCards = ({ hallDetails }) => {
   return (
     <div
       onClick={handleBookingSection}
-      className="card bg-base-100 w-80 h-auto  shadow-lg shadow-gray-200"
+      className="card bg-base-100 w-80 h-auto  shadow-lg shadow-gray-200 cursor-pointer hover:-translate-y-3 transition-transform duration-500"
     >
       <figure>
         <img

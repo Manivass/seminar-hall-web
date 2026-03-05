@@ -33,12 +33,12 @@ const BookHall = () => {
   return (
     <div>
       <NavBar />
-      <div className="bg-base-200 w-screen min-h-screen px-8 py-8 ">
+      <div className="bg-base-200 max-w-screen min-h-screen px-8 py-8 ">
         <div className="bg-base-100 p-7 rounded-lg">
           <h2 className="font-bold text-2xl text-black font-serif">
             Book Venues
           </h2>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 pt-4">
             {hallAvailable &&
               hallAvailable?.map((hall) => {
                 return <SeminarHallCards hallDetails={hall} />;

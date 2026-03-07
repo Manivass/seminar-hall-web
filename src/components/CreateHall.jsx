@@ -46,7 +46,7 @@ const CreateHall = () => {
                   src={
                     photoURL
                       ? photoURL
-                      : "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                      : "https://www.designmania.gr/wp-content/uploads/2022/09/Seminar-Hall-05.jpg"
                   }
                   alt="Shoes"
                 />
@@ -89,6 +89,7 @@ const CreateHall = () => {
                     className="input"
                     placeholder="Enter the Photo URL"
                   />
+
                   <label className="label">Facilities</label>
                   <textarea
                     className="textarea"

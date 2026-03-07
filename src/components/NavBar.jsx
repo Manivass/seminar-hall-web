@@ -62,9 +62,16 @@ const NavBar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1 flex gap-4">
-            <li>
-              <a>Item 1</a>
-            </li>
+            {isUserLogin?.role === "admin" && (
+              <li>
+                <Link
+                  to="/admin/booking-hall/pendinglist"
+                  className="p-2 border btn btn-success text-white"
+                >
+                  Approve List
+                </Link>
+              </li>
+            )}
             <li>
               <details>
                 <summary>Parent</summary>
@@ -81,7 +88,7 @@ const NavBar = () => {
             {isUserLogin?.role === "admin" && (
               <li>
                 <Link
-                  to="/createhall"
+                  to="/admin/createhall"
                   className="p-2 border bg-pink-500 text-white"
                 >
                   Create Hall

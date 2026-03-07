@@ -16,7 +16,7 @@ const SeminarHallCards = ({ hallDetails }) => {
           src={
             hallDetails?.photoURL
               ? hallDetails?.photoURL
-              : "https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+              : "https://www.designmania.gr/wp-content/uploads/2022/09/Seminar-Hall-05.jpg"
           }
           alt="hall"
         />
